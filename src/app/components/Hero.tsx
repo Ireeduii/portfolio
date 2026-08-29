@@ -18,9 +18,8 @@ export default function Hero() {
         </h1>
 
         <p className="text-sm sm:text-base text-zinc-400 max-w-lg mb-8 font-light leading-relaxed">
-          Орчин үеийн вэб технологиуд, Next.js, TypeScript болон 3D хөдөлгөөнт
-          шийдлүүдийг ашиглан хэрэглэгчдийн хэрэгцээнд нийцсэн өвөрмөц туршлагыг
-          бүтээдэг.
+          Орчин үеийн технологи ашиглан хэрэглэгчийн хэрэгцээнд нийцсэн чанартай
+          вэб болон утасны апп хөгжүүлэх.
         </p>
 
         <div className="flex flex-wrap items-center gap-4">

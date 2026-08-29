@@ -28,7 +28,7 @@ const projectsData: Project[] = [
   },
   {
     id: 2,
-    title: "Lost and Found",
+    title: "Lost and Found - Хаясан болон олсон эд зүйлсийг нэгтгэх",
     category: "Full-Stack / Team Project",
     tech: "React • MongoDB • Mongoose • Cloudinary • Tailwind CSS",
     summary:
@@ -46,7 +46,7 @@ const projectsData: Project[] = [
   },
   {
     id: 3,
-    title: "Skill Map & Team Builder",
+    title: "Skill Map & Team Builder - Ухаалаг баг хуваах систем",
     category: "Full-Stack",
     tech: "Next.js • React • Tailwind CSS • TypeScript • PostgreSQL & Prisma • Clerk Auth",
     summary:
