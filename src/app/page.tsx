@@ -1,103 +1,112 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import ProjectsSection, { Project } from "@/app/components/ProjectSection";
+import SkillsSection from "./components/SkillsSection";
+import Footer from "./components/Footer";
+import ProjectModal from "./components/ProjectModel";
+
+const projectsData: Project[] = [
+  {
+    id: 1,
+    title: "CityVoice — Иргэний гомдол мэдээллийн систем",
+    category: "Full-Stack",
+    tech: "Next.js • Prisma • Clerk • Tailwind CSS • PostgreSQL • Vercel • Geolocation",
+    summary:
+      "Улаанбаатар хотын тулгамдсан асуудлыг зураг болон байршилтай нь бүртгэж, админ эрхээр хянах боломжтой платформын хөгжүүлэлт.",
+    description:
+      "CityVoice систем нь иргэдийн амьдарч буй орчин тойрон дахь тулгамдсан асуудал (хог хаягдал, гэрэлтүүлэг г.м.)-ийг гар утсаараа зураг дарж, GPS байршлын хамт шууд мэдээлэх боломжийг олгодог.",
+    features: [
+      "Интерактив газрын зураг болон байршил тогтоох",
+      "Clerk ашигласан найдвартай нэвтрэлтийн систем",
+      "Админ хяналтын самбар (Dashboard) болон статус хяналт",
+      "Зураг хадгалах болон датабаз менежмент (Prisma + PostgreSQL)",
+    ],
+    githubUrl: "https://github.com/Ireeduii/issue-reporter.git",
+  },
+  {
+    id: 2,
+    title: "Lost and Found",
+    category: "Full-Stack / Team Project",
+    tech: "React • MongoDB • Mongoose • Cloudinary • Tailwind CSS",
+    summary:
+      "Гээгдүүлсэн болон олдсон эд зүйлсийг бүртгэж, зурагтай нь тохируулах ба үүний дараа хүмүүстэй холбох багийн төсөл.",
+    description:
+      "Хүмүүсийн алдсан, олсон эд зүйлсийг зарлал болгон оруулах, хайх, шүүлтүүр хийх боломжтой вэб юм. Зургийг Cloudinary-д хадгалж, MongoDB-г Mongoose-оор удирдан багийнхантай хамт хөгжүүлсэн.",
+    features: [
+      "Rest API хөгжүүлэлт",
+      "MongoDB NoSQL датабаз болон Mongoose",
+      "Cloudinary API ашиглан зураг оруулах, устгах систем",
+      "Search буюу хайлт, шүүлтүүр",
+    ],
+    githubUrl: "https://github.com/Team-3A/Lost-and-Found.git",
+    liveUrl: "https://lost-and-found-tau-self.vercel.app/auth/signup",
+  },
+  {
+    id: 3,
+    title: "Skill Map & Team Builder",
+    category: "Full-Stack",
+    tech: "Next.js • React • Tailwind CSS • TypeScript • PostgreSQL & Prisma • Clerk Auth",
+    summary:
+      "Ажилтнуудын ур чадварыг зураглаж, төслийн багийг оновчтой бүрдүүлэхэд зориулсан удирдлагын систем.",
+    description:
+      "Компанийн эсвэл багийн гишүүдийн техникийн болон хувь хүний ур чадварыг нэгдсэн байдлаар зураглаж харах, тухайн төслийн шаардлагад нийцсэн чадвартай ажилтнуудыг сонгож баг бүрдүүлэхэд туслах юм.",
+    features: [
+      "Төслийн шаардлагад үндэслэсэн оновчтой багийн сонголт",
+      "Хэрэглэгчдийн мэдээллийг хялбар удирдах интерфейс",
+      "Цэвэр бөгөөд хурдан ажиллагаатай UI загвар",
+    ],
+    githubUrl: "https://github.com/Ireeduii/employee-teambuilder.git",
+    liveUrl: "https://employee-teambuilder.vercel.app/",
+  },
+  {
+    id: 4,
+    title: "Code Vault - Хөгжүүлэлтийн код хадгалах сан",
+    category: "Full-Stack",
+    tech: "Next.js • TypeScript • PostgreSQL & Prisma • Clerk Auth • Google Gemini AI API",
+    summary:
+      "Хэрэгтэй код хэсгүүд, скриптүүд болон ложикийг ангилан хадгалж, хялбар байдлаар эргүүлэн хайж ашиглахад зориулсан хөгжүүлэгчийн хэрэгсэл.",
+    description:
+      "Өдөр тутмын програмчлал болон төсөл дээр ажиллах явцад дахин ашиглах шаардлагатай кодын хэсгүүд, бодлогын санаанууд болон тохиргоонуудыг нэг дор цэгцтэй хадгалж, хурдан хайж олох боломжийг олгох вэб юм.",
+    features: [
+      "Кодын хэсгүүдийг хэл болон төрлөөр нь ангилах систем",
+      "Хурдан бөгөөд оновчтой хайлтын систем",
+      "Цэвэрхэн бөгөөд хөгжүүлэгчдэд ээлтэй UI дизайн",
+    ],
+    githubUrl: "https://github.com/Ireeduii/code-vault.git",
+    liveUrl: "https://code-vault-es5a.vercel.app/dashboard",
+  },
+];
+
+export default function Dark3DPortfolio() {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen bg-[#121214] text-zinc-100 selection:bg-purple-500 selection:text-white relative overflow-hidden font-sans">
+      {/* Background Glow Effects */}
+      <div className="absolute top-[-5%] left-[-10%] w-[500px] h-[500px] bg-gradient-to-br from-purple-900/30 via-indigo-900/20 to-transparent rounded-full blur-[120px] pointer-events-none animate-pulse" />
+      <div className="absolute top-[25%] right-[-15%] w-[600px] h-[600px] bg-gradient-to-tl from-zinc-800/40 via-purple-950/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] left-[20%] w-[550px] h-[550px] bg-gradient-to-tr from-purple-900/25 to-transparent rounded-full blur-[130px] pointer-events-none" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Navbar />
+
+      <Hero />
+
+      <ProjectsSection
+        projects={projectsData}
+        onSelectProject={(project: Project) => setSelectedProject(project)}
+      />
+
+      <SkillsSection />
+
+      <Footer />
+
+      <ProjectModal
+        project={selectedProject}
+        onClose={() => setSelectedProject(null)}
+      />
     </div>
   );
 }
