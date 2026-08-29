@@ -94,6 +94,23 @@ const projectsData: Project[] = [
     githubUrl: "https://github.com/Ireeduii/quiz-project.git",
     liveUrl: "https://quiz-project-tawny.vercel.app/",
   },
+  {
+    id: 6,
+    title: "Mood Tracking App — Сэтгэл санаа болон өдрийн төлөвлөгч систем",
+    category: "Full-Stack",
+    tech: "Next.js • TypeScript • PostgreSQL • Prisma • Tailwind CSS • Vercel",
+    summary:
+      "Тухайн өдрийн сэтгэл санааны байдлаа (mood) сонгож, тэмдэглэл хөтлөх болон өдрийн хийх ажлуудаа (todo) удирдах боломжтой өдөр тутмын хэрэглээний вэб юм.",
+    description:
+      "Энэхүү платформ нь хэрэглэгчдэд өдөр бүрийн сэтгэл санааны өөрчлөлтөө хянах, тухайн өдрийн сэтгэгдэл болон тэмдэглэл бичих, мөн хийх ёстой ажлуудаа (todo) жагсааж төвөггүй удирдах боломжийг олгодог. Prisma болон PostgreSQL өгөгдлийн сан ашиглан хэрэглэгч тус бүрийн мэдээллийг найдвартай хадгалахаар хөгжүүлсэн.",
+    features: [
+      "Өдрийн сэтгэл санааны байдал (mood)-ийг сонгож, тэмдэглэл бичих систем",
+      "Өдрийн хийх ажлуудын жагсаалт (todo list) үүсгэж, гүйцэтгэлээ хянах",
+      "PostgreSQL болон Prisma ашигласан найдвартай өгөгдлийн сангийн архитектур",
+    ],
+    githubUrl: "https://github.com/Ireeduii/mood-tracking-app.git",
+    liveUrl: "https://mood-tracking-app-ptw3.vercel.app/",
+  },
 ];
 
 export default function Dark3DPortfolio() {
