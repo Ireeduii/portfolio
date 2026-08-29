@@ -6,7 +6,7 @@ export default function SkillsSection() {
     "Tailwind CSS",
     "Prisma",
     "PostgreSQL",
-    "Git & GitHub",
+    "GitHub",
     "Vercel",
   ];
 
@@ -16,10 +16,10 @@ export default function SkillsSection() {
       className="max-w-6xl mx-auto px-6 py-24 border-t border-zinc-900/80 relative z-10"
     >
       <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2 text-zinc-100">
-        ТЕХНОЛОГИЙН СТЕК
+        Tech Stack
       </h2>
       <p className="text-sm text-zinc-400 mb-10">
-        Миний өдөр тутмын хөгжүүлэлтдээ түлхүү ашигладаг хэрэгслүүд
+        Өдөр тутамдаа ашигладаг технологиуд:
       </p>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">

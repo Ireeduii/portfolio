@@ -78,6 +78,22 @@ const projectsData: Project[] = [
     githubUrl: "https://github.com/Ireeduii/code-vault.git",
     liveUrl: "https://code-vault-es5a.vercel.app/dashboard",
   },
+  {
+    id: 5,
+    title: "Quiz-Ai — AI ашиглан сорил үүсгэх вэб",
+    category: "Full-Stack / AI",
+    tech: "Next.js • TypeScript • PostgreSQL & Prisma • Google Gemini AI API • Vercel",
+    summary:
+      "Нийтлэл болон текст контентоос хиймэл оюун ухаан ашиглан автоматаар асуулт хариулт (quiz) үүсгэж, мэдлэгээ үр дүнтэй шалгах боломжийг олгох вэб юм.",
+    description:
+      "Энэхүү төсөл нь хэрэглэгчийн оруулсан дурын текст эсвэл нийтлэлийг AI-аар задлан шинжилж, автоматаар сорил (quiz) болгон хувиргадаг. Ингэснээр хэрэглэгчид аливаа сэдвийг илүү хурдан бөгөөд интерактив байдлаар суралцаж, мэдлэгээ шалгах боломжтой юм.",
+    features: [
+      "AI ашиглан текст эсвэл нийтлэлээс автомат сорил үүсгэх систем",
+      "Next.js болон Prisma, PostgreSQL ашигласан найдвартай full-stack архитектур",
+    ],
+    githubUrl: "https://github.com/Ireeduii/quiz-project.git",
+    liveUrl: "https://quiz-project-tawny.vercel.app/",
+  },
 ];
 
 export default function Dark3DPortfolio() {
@@ -85,7 +101,6 @@ export default function Dark3DPortfolio() {
 
   return (
     <div className="min-h-screen bg-[#121214] text-zinc-100 selection:bg-purple-500 selection:text-white relative overflow-hidden font-sans">
-      {/* Background Glow Effects */}
       <div className="absolute top-[-5%] left-[-10%] w-[500px] h-[500px] bg-gradient-to-br from-purple-900/30 via-indigo-900/20 to-transparent rounded-full blur-[120px] pointer-events-none animate-pulse" />
       <div className="absolute top-[25%] right-[-15%] w-[600px] h-[600px] bg-gradient-to-tl from-zinc-800/40 via-purple-950/20 to-transparent rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[-10%] left-[20%] w-[550px] h-[550px] bg-gradient-to-tr from-purple-900/25 to-transparent rounded-full blur-[130px] pointer-events-none" />
