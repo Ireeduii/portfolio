@@ -13,15 +13,7 @@ export default function Navbar() {
           </span>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400 font-medium">
-          <a href="#about" className="hover:text-white transition-colors"></a>
-          {/* <a href="#projects" className="hover:text-white transition-colors">
-            төслүүд
-          </a> */}
-          {/* <a href="#skills" className="hover:text-white transition-colors">
-            ур чадвар
-          </a> */}
-        </nav>
+        <nav className="hidden md:flex items-center gap-8 text-sm text-zinc-400 font-medium"></nav>
 
         <a
           href="mailto:ireedui@example.com"
