@@ -25,6 +25,7 @@ const projectsData: Project[] = [
       "Зураг хадгалах болон датабаз менежмент (Prisma + PostgreSQL)",
     ],
     githubUrl: "https://github.com/Ireeduii/issue-reporter.git",
+    liveUrl: "https://issue-reporter-nu.vercel.app/"
   },
   {
     id: 2,
